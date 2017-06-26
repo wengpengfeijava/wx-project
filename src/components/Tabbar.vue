@@ -5,18 +5,34 @@
         <img class="weui-tabbar__icon" slot="icon">
       </span>
       首页
+
+
+
+
     </wv-tabbar-item>
     <wv-tabbar-item to="/category">
-      <img class="weui-tabbar__icon" @click="clickItem(2)"  slot="icon"> 分类
+      <img class="weui-tabbar__icon" @click="clickItem(2)" slot="icon"> 分类
+
+
+
+
     </wv-tabbar-item>
     <wv-tabbar-item to="/myCourse">
-      <span slot="icon" @click="clickItem(3)"  style="display: inline-block; position: relative;">
+      <span slot="icon" @click="clickItem(3)" style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" slot="icon">
       </span>
       我的课程
+
+
+
+
     </wv-tabbar-item>
     <wv-tabbar-item to="/profile">
       <img @click="clickItem(4)" class="weui-tabbar__icon" slot="icon"> 我的
+
+
+
+
     </wv-tabbar-item>
   </wv-tabbar>
 </template>
@@ -38,7 +54,7 @@
     },
     methods: {
       clickItem: function (tabIndex) {
-        console.log(tabIndex)
+        this.$store.dispatch('changeNav', false)
       }
     }
   }

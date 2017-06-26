@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!--{{navTabDirection}}-->
     <transition name="animations" mode="out-in">
       <router-view class="test"></router-view>
     </transition>
@@ -9,7 +10,12 @@
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    computed: {
+      navTabDirection () {
+        return this.$store.state.navTabDirection
+      }
+    }
   }
 </script>
 
@@ -46,6 +52,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
   }
 </style>
