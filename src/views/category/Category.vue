@@ -3,8 +3,10 @@
 
     fenlei
 
-{{navTabDirection}}
-    <button @click="show=!show">show</button>
+
+    <wv-actionsheet type="ios" :actions="actions" cancel-text="取消" v-model="sheetVisible"></wv-actionsheet>
+
+    <button @click="sheetVisible=!sheetVisible">show</button>
     <transition name="outLeftInRight">
       <p v-show="show" class="test">hello</p>
     </transition>
@@ -13,10 +15,21 @@
 
 
 <script>
+  import WeVue from 'we-vue'
+  const components = {
+    [WeVue.Actionsheet.name]: WeVue.Actionsheet
+  }
+  //  Vue.component(ActionSheet.name, ActionSheet)
   export default {
+    components: components,
     data () {
       return {
-        show: false
+        show: false,
+        actions: [{
+          id: '123',
+          name: '你是真的屁'
+        }],
+        sheetVisible: false
       }
     },
     computed: {
