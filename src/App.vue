@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <!--<transition name="fade" mode="out-in">-->
-      <router-view class="animated"></router-view>
-    <!--</transition>-->
+    <transition name="animations" mode="out-in">
+      <router-view class="test"></router-view>
+    </transition>
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -14,35 +14,29 @@
 </script>
 
 <style>
-  .animated {
-    animation-duration: .2s;
-    animation-fill-mode: both;
+
+  .test {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
   }
 
-  @keyframes fadeInRight {
-    from {
-      opacity: 0;
-      transform: translate3d(100%, 0, 0);
-    }
-
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  .animations-enter {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
   }
 
-  .fade-leave-active {
-
-  }
-
-  .fade-enter-active {
-    -webkit-animation-name: fadeInRight;
-    -moz-animation-name: fadeInRight;
-    -o-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-  }
-
-  .fade-enter, .fade-leave-to {
+  .animations-leave, .animations-leave-active {
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 
   #app {

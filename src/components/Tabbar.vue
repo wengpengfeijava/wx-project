@@ -1,27 +1,22 @@
 <template>
   <wv-tabbar>
     <wv-tabbar-item to="/" is-on>
-      <span slot="icon" style="display: inline-block; position: relative;">
+      <span slot="icon" @click="clickItem(1)" style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" slot="icon">
-        <!--<wv-badge style="position: absolute;top: -2px;right: -13px;">8</wv-badge>-->
       </span>
       首页
-
     </wv-tabbar-item>
     <wv-tabbar-item to="/category">
-      <img class="weui-tabbar__icon" slot="icon"> 分类
-
+      <img class="weui-tabbar__icon" @click="clickItem(2)"  slot="icon"> 分类
     </wv-tabbar-item>
     <wv-tabbar-item to="/myCourse">
-      <span slot="icon" style="display: inline-block; position: relative;">
+      <span slot="icon" @click="clickItem(3)"  style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" slot="icon">
-        <!--<wv-badge is-dot style="position: absolute;top: 0;right: -6px;">8</wv-badge>-->
       </span>
       我的课程
-
     </wv-tabbar-item>
     <wv-tabbar-item to="/profile">
-      <img class="weui-tabbar__icon" slot="icon"> 我的
+      <img @click="clickItem(4)" class="weui-tabbar__icon" slot="icon"> 我的
     </wv-tabbar-item>
   </wv-tabbar>
 </template>
@@ -40,6 +35,11 @@
     components: components,
     data () {
       return {}
+    },
+    methods: {
+      clickItem: function (tabIndex) {
+        console.log(tabIndex)
+      }
     }
   }
 </script>
