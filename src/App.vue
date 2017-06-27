@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--{{navTabDirection}}-->
-    <transition name="animations" mode="out-in">
+    <transition :name="routerAnimateCss" mode="out-in">
       <router-view class="test"></router-view>
     </transition>
     <Tabbar></Tabbar>
@@ -12,8 +12,8 @@
   export default {
     name: 'app',
     computed: {
-      navTabDirection () {
-        return this.$store.state.navTabDirection
+      routerAnimateCss () {
+        return this.$store.state.routerAnimateCss
       }
     }
   }
@@ -45,6 +45,20 @@
     transform: translateX(-100%);
   }
 
+  .animations-reverse-enter {
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  .animations-reverse-leave, .animations-reverse-leave-active {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
   #app {
     overflow: hidden;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

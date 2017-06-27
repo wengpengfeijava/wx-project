@@ -54,7 +54,7 @@
     },
     methods: {
       clickItem: function (tabIndex) {
-        this.$store.dispatch('changeNav', false)
+        this.$store.dispatch('toggleNav', tabIndex)
       }
     }
   }

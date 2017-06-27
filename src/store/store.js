@@ -7,17 +7,23 @@ import Vue from 'vue'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   mutations: {
-    changeNav (state, b) {
-      state.navTabDirection = b
+    toggleNav (state, index) {
+      if (index > state.navTabIndex) {
+        state.routerAnimateCss = 'animations'
+      } else {
+        state.routerAnimateCss = 'animations-reverse'
+      }
+      state.navTabIndex = index
     }
   },
   actions: {
-    changeNav (some, a) {
-      some.commit('changeNav', a)
+    toggleNav (some, index) {
+      some.commit('toggleNav', index)
     }
   },
   state: {
-    navTabDirection: true
+    navTabIndex: 1,
+    routerAnimateCss: 'animations'
   }
 })
 export default store
