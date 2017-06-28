@@ -16,9 +16,7 @@
 
 <script>
   import Wevue from 'we-vue'
-  console.log(Wevue)
   export default {
-
     components: {[Wevue.Picker.name]: Wevue.Picker, [Wevue.Group.name]: Wevue.Group, [Wevue.Cell.name]: Wevue.Cell},
     data () {
       return {
@@ -61,6 +59,12 @@
           }
         ]
       }
+    },
+    created () {
+      this.$http.get('/api')
+        .then(function (data) {
+          console.log(data)
+        })
     }
   }
 </script>
